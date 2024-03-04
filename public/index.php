@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $request_method = $_SERVER['REQUEST_METHOD'];
 
 switch ($request_method) {
+    
     case 'GET':
         modelUsuario::getTasks();
         break;
@@ -26,13 +27,15 @@ switch ($request_method) {
         break;
     case 'PUT':
         $data = json_decode(file_get_contents('php://input'), true);
-        
+
         modelUsuario::updateTask($data['id'], $data['task'], $data['status'],$data['dataAtualizacao']);
         break;
+
     case 'DELETE':
         $data = json_decode(file_get_contents('php://input'), true);
         modelUsuario::deleteTask($data['id']);
         break;
+
     default:
         http_response_code(405);
         echo json_encode(array('message' => 'Método não permitido'));
