@@ -1,10 +1,13 @@
 <?php
 require "../vendor/autoload.php";
+
 use App\models\modelUsuario;
 
 header("Access-Control-Allow-Origin: *");
+
 // Permitir solicitações com métodos POST, GET, PUT, DELETE e OPTIONS
 header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
+
 // Permitir os cabeçalhos Content-Type e Authorization
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
